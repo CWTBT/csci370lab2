@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject startButton;
     public GameObject backgroundImage;
+
+    public GameObject canvas;
+    public GameObject events;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,8 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(canvas);
+            DontDestroyOnLoad(events);
         }
         else
         {
@@ -39,5 +45,16 @@ public class GameManager : MonoBehaviour
     public void StartButton()
     {
         startButton.SetActive(false);
+        StartCoroutine(LoadYourAsyncScene("Level1"));
+    }
+
+    IEnumerator LoadYourAsyncScene(string scene)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }

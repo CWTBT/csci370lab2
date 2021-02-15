@@ -542,8 +542,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startButton: {fileID: 1835936916}
   backgroundImage: {fileID: 0}
-  canvas: {fileID: 0}
-  events: {fileID: 0}
+  canvas: {fileID: 979118328}
+  events: {fileID: 1984208281}
 --- !u!4 &1953227055
 Transform:
   m_ObjectHideFlags: 0
