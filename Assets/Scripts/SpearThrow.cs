@@ -5,10 +5,12 @@ using UnityEngine;
 public class SpearThrow : MonoBehaviour
 {
     public GameObject projectile;
+    private AudioSource throwSound;
     
     // Start is called before the first frame update
     void Start()
     {
+        throwSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,7 +24,7 @@ public class SpearThrow : MonoBehaviour
             pos.y += .75f;
             GameObject shot = Instantiate(projectile, transform.position, transform.rotation);
             SetShotVelocity(shot);
-            
+            throwSound.Play();
         }
     }
 
