@@ -23,6 +23,8 @@ public class PlayerControl : MonoBehaviour
     public float runSpeed = 10f;
     private float moveLimiter = 0.7f;
 
+    private bool inMud;
+
     public Sprite right;
     public Sprite left;
     public Sprite up;
@@ -35,6 +37,7 @@ public class PlayerControl : MonoBehaviour
         spr = this.GetComponent<SpriteRenderer>();
         if (spr.sprite == null) spr.sprite = right;
         direction = Facing.Right;
+        inMud = false;
     }
 
     // Update is called once per frame
@@ -88,6 +91,17 @@ public class PlayerControl : MonoBehaviour
                 spr.sprite = down;
                 direction = Facing.Down;
             }
+        }
+    }
+
+    public void Mudding(bool inMud)
+    {
+        if (inMud)
+        {
+            runSpeed = 2.5f;
+        } else
+        {
+            runSpeed = 10f;
         }
     }
 }
