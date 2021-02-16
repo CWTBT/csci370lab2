@@ -1,3 +1,3 @@
 BG Tileset: https://sevarihk.itch.io/aztec-asset-pack
 Snail: https://opengameart.org/content/slime-snail
-Spear: 
+Spear: https://opengameart.org/content/spear-1
