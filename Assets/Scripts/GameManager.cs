@@ -15,16 +15,25 @@ public class GameManager : MonoBehaviour
 
     public GameObject canvas;
     public GameObject events;
+
+    private int enemyCount = 0;
+    public TextMeshProUGUI enemyText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyText.text = "";
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void decEnemyCount()
+    {
+        enemyCount -= 1;
+        enemyText.text = "Farmers Remaining: " + enemyCount;
     }
 
     void Awake()
@@ -45,7 +54,11 @@ public class GameManager : MonoBehaviour
     public void StartButton()
     {
         startButton.SetActive(false);
+        enemyCount = 5;
+        enemyText.text = "Farmers Remaining: " + enemyCount;
+
         StartCoroutine(LoadYourAsyncScene("Level1"));
+
     }
 
     IEnumerator LoadYourAsyncScene(string scene)

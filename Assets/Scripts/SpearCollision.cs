@@ -32,6 +32,7 @@ public class SpearCollision : MonoBehaviour
         else if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
+            GameManager.Instance.decEnemyCount();
             StartCoroutine("Hit");
         }
         
