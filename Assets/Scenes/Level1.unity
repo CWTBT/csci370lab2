@@ -5357,7 +5357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1162517142}
-  boundaryPercent: 0.1
+  boundaryPercent: 0.2
   easing: 0.01
 --- !u!1001 &3129859257288400620
 PrefabInstance:
