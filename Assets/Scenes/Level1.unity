@@ -3569,7 +3569,7 @@ GameObject:
   - component: {fileID: 1162517148}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3698,6 +3698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5790240c0e867eb4cbd8955e49b3e220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 0
   runSpeed: 10
   right: {fileID: 8973212966699452106, guid: 9ec43335be9d6ab49ad90bfb94bb0e3e, type: 3}
   left: {fileID: 7908504283364804799, guid: 9ec43335be9d6ab49ad90bfb94bb0e3e, type: 3}
@@ -3717,7 +3718,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 5909043337293862839, guid: c4ece563428208d4cb5e8e35a5aa06ca,
     type: 3}
-  spr: {fileID: 0}
 --- !u!1 &1202465960
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,7 +3778,7 @@ GameObject:
   - component: {fileID: 1227814307}
   m_Layer: 0
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
