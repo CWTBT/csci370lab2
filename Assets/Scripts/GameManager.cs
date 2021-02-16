@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public GameObject canvas;
     public GameObject events;
 
+    public GameObject dialogBox;
+    public GameObject dialogText;
+
     private int enemyCount = 0;
     public TextMeshProUGUI enemyText;
     // Start is called before the first frame update
@@ -69,5 +72,16 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
+    }
+
+    public void StartDialog(string text)
+    {
+        dialogBox.SetActive(true);
+        dialogText.GetComponent<TextMeshProUGUI>().text = text;
+    }
+
+    public void HideDialog()
+    {
+        dialogBox.SetActive(false);
     }
 }
