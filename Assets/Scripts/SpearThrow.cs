@@ -19,7 +19,7 @@ public class SpearThrow : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             GameObject shot = Instantiate(projectile, transform.position, transform.rotation);
-            shot.GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 0) * 10);
+            shot.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
         }
     }
 }
