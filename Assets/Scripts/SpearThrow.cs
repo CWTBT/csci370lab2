@@ -18,6 +18,8 @@ public class SpearThrow : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 pos = transform.position;
+            pos.x += .75f;
+            pos.y += .75f;
             GameObject shot = Instantiate(projectile, transform.position, transform.rotation);
             Facing dir = gameObject.GetComponent<PlayerControl>().direction;
             if (dir == Facing.Left)
