@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum Facing
+{
+    Up,
+    Down,
+    Left,
+    Right
+}
+
 public class PlayerControl : MonoBehaviour
 {
 
@@ -9,6 +18,7 @@ public class PlayerControl : MonoBehaviour
 
     private float horizontal;
     private float vertical;
+    public Facing direction;
 
     public float runSpeed = 10f;
     private float moveLimiter = 0.7f;
@@ -24,6 +34,7 @@ public class PlayerControl : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         spr = this.GetComponent<SpriteRenderer>();
         if (spr.sprite == null) spr.sprite = right;
+        direction = Facing.Right;
     }
 
     // Update is called once per frame
@@ -54,13 +65,29 @@ public class PlayerControl : MonoBehaviour
         if (body.velocity == Vector2.zero) return;
         else if (HorizontalMagnitudeGreater())
         {
-            if (body.velocity.x > 0) spr.sprite = right;
-            else spr.sprite = left;
+            if (body.velocity.x > 0)
+            {
+                spr.sprite = right;
+                direction = Facing.Right;
+            }
+            else
+            {
+                spr.sprite = left;
+                direction = Facing.Left;
+            }
         }
         else
         {
-            if (body.velocity.y > 0) spr.sprite = up;
-            else spr.sprite = down;
+            if (body.velocity.y > 0) 
+            { 
+                spr.sprite = up;
+                direction = Facing.Up;
+            }
+            else
+            {
+                spr.sprite = down;
+                direction = Facing.Down;
+            }
         }
     }
 }
