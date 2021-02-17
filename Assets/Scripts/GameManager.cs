@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public GameObject dialogBox;
     public GameObject dialogText;
 
+    private Coroutine dialogCo;
+
     private int enemyCount = 0;
     public TextMeshProUGUI enemyText;
     // Start is called before the first frame update
@@ -77,12 +79,13 @@ public class GameManager : MonoBehaviour
     public void StartDialog(string text)
     {
         dialogBox.SetActive(true);
-        StartCoroutine(TypeText(text));
+        dialogCo = StartCoroutine(TypeText(text));
     }
 
     public void HideDialog()
     {
         dialogBox.SetActive(false);
+        StopCoroutine(dialogCo);
     }
 
     IEnumerator TypeText(string text)
