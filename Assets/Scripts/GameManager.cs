@@ -39,11 +39,30 @@ public class GameManager : MonoBehaviour
     public void decEnemyCount()
     {
         enemyCount -= 1;
-        enemyText.text = "Farmers Remaining: " + enemyCount;
         if (enemyCount == 0)
         {
-            StartCoroutine(LoadYourAsyncScene("Level2"));
+            if (SceneManager.GetActiveScene().name == "Level1")
+            {
+                StartCoroutine(LoadYourAsyncScene("Level2"));
+                enemyCount = 8;
+            } else if (SceneManager.GetActiveScene().name == "Level2")
+            {
+                StartCoroutine(LoadYourAsyncScene("Level3"));
+                enemyCount = 12;
+            } else
+            {
+                StopAllCoroutines();
+                StartCoroutine(LoadYourAsyncScene("MainMenu"));
+                enemyCount = 0;
+                enemyText.text = "";
+            }
+            
         }
+        if (enemyCount > 0)
+        {
+            enemyText.text = "Farmers Remaining: " + enemyCount;
+        }
+        
     }
 
     void Awake()
