@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(LoadYourAsyncScene("MainMenu"));
                 enemyCount = 0;
                 enemyText.text = "";
+                HideDialog();
+                startButton.SetActive(true);
             }
             
         }

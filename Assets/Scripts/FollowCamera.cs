@@ -19,7 +19,7 @@ public class FollowCamera : MonoBehaviour
         lBound = boundaryPercent * Camera.main.pixelWidth;
         rBound = Camera.main.pixelWidth - lBound;
         dBound = boundaryPercent * Camera.main.pixelHeight;
-        uBound = Camera.main.pixelHeight - uBound;
+        uBound = Camera.main.pixelHeight - dBound;
     }
 
     // Update is called once per frame
