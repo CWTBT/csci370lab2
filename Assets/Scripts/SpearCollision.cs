@@ -41,7 +41,9 @@ public class SpearCollision : MonoBehaviour
     IEnumerator Hit()
     {
         SpriteRenderer spr = gameObject.GetComponentInChildren<SpriteRenderer>();
+        TrailRenderer tr = gameObject.GetComponentInChildren<TrailRenderer>();
         spr.enabled = false;
+        tr.enabled = false;
         hitSound.Play();
         yield return new WaitForSeconds(hitSound.clip.length);
         Destroy(gameObject);
@@ -50,7 +52,9 @@ public class SpearCollision : MonoBehaviour
     IEnumerator Thwack()
     {
         SpriteRenderer spr = gameObject.GetComponentInChildren<SpriteRenderer>();
+        TrailRenderer tr = gameObject.GetComponentInChildren<TrailRenderer>();
         spr.enabled = false;
+        tr.enabled = false;
         wallSound.Play();
         yield return new WaitForSeconds(wallSound.clip.length);
         Destroy(gameObject);
