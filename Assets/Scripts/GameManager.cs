@@ -77,11 +77,21 @@ public class GameManager : MonoBehaviour
     public void StartDialog(string text)
     {
         dialogBox.SetActive(true);
-        dialogText.GetComponent<TextMeshProUGUI>().text = text;
+        StartCoroutine(TypeText(text));
     }
 
     public void HideDialog()
     {
         dialogBox.SetActive(false);
+    }
+
+    IEnumerator TypeText(string text)
+    {
+        dialogText.GetComponent<TextMeshProUGUI>().text = "";
+        foreach (char c in text.ToCharArray())
+        {
+            dialogText.GetComponent<TextMeshProUGUI>().text += c;
+            yield return new WaitForSeconds(0.025f);
+        }
     }
 }
