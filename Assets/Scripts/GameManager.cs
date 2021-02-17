@@ -51,11 +51,9 @@ public class GameManager : MonoBehaviour
                 enemyCount = 12;
             } else
             {
-                StopAllCoroutines();
                 StartCoroutine(LoadYourAsyncScene("MainMenu"));
                 enemyCount = 0;
                 enemyText.text = "";
-                HideDialog();
                 startButton.SetActive(true);
             }
             
