@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     private int enemyCount = 0;
     public TextMeshProUGUI enemyText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,14 +57,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator ColorLerp(Color endvalue, float duration)
+    {
+        float time = 0;
+        Image sprite = backgroundImage.GetComponent<Image>();
+        Color startValue = sprite.color;
+
+        while (time < duration)
+        {
+            sprite.color = Color.Lerp(startValue, endvalue, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        sprite.color = endvalue;
+    }
+
     public void StartButton()
     {
         startButton.SetActive(false);
+        StartCoroutine(LoadYourAsyncScene("Level1"));
         enemyCount = 5;
         enemyText.text = "Farmers Remaining: " + enemyCount;
-
-        StartCoroutine(LoadYourAsyncScene("Level1"));
-
+        
     }
 
     IEnumerator LoadYourAsyncScene(string scene)
@@ -74,6 +89,8 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
+
+        StartCoroutine(ColorLerp(new Color(1, 1, 1, 0), 2));
     }
 
     public void StartDialog(string text)
