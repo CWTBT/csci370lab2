@@ -40,6 +40,10 @@ public class GameManager : MonoBehaviour
     {
         enemyCount -= 1;
         enemyText.text = "Farmers Remaining: " + enemyCount;
+        if (enemyCount == 0)
+        {
+            StartCoroutine(LoadYourAsyncScene("Level2"));
+        }
     }
 
     void Awake()
