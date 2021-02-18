@@ -104,6 +104,15 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void restart()
+    {
+        StopAllCoroutines();
+        StartCoroutine(LoadYourAsyncScene("MainMenu"));
+        enemyCount = 0;
+        enemyText.text = "";
+        startButton.SetActive(true);
+    }
+
     IEnumerator LoadYourAsyncScene(string scene)
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
