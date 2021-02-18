@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject dialogBox;
     public GameObject dialogText;
+    public TextMeshProUGUI titleText;
 
     private Coroutine dialogCo;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         enemyText.text = "";
+        titleText.text = "SNAIL REVOLT";
     }
 
     // Update is called once per frame
@@ -51,10 +53,7 @@ public class GameManager : MonoBehaviour
                 enemyCount = 12;
             } else
             {
-                StartCoroutine(LoadYourAsyncScene("MainMenu"));
-                enemyCount = 0;
-                enemyText.text = "";
-                startButton.SetActive(true);
+                Win();
             }
             
         }
@@ -98,6 +97,7 @@ public class GameManager : MonoBehaviour
     public void StartButton()
     {
         startButton.SetActive(false);
+        titleText.text = "";
         StartCoroutine(LoadYourAsyncScene("Level1"));
         enemyCount = 5;
         enemyText.text = "Farmers Remaining: " + enemyCount;
@@ -106,10 +106,19 @@ public class GameManager : MonoBehaviour
 
     public void restart()
     {
-        StopAllCoroutines();
-        StartCoroutine(LoadYourAsyncScene("MainMenu"));
+        StartCoroutine(ColorLerp(Color.white, 2));
         enemyCount = 0;
         enemyText.text = "";
+        titleText.text = "GAME OVER!";
+        startButton.SetActive(true);
+    }
+
+    public void Win()
+    {
+        StartCoroutine(ColorLerp(Color.white, 2));
+        enemyCount = 0;
+        enemyText.text = "";
+        titleText.text = "Congratulations!";
         startButton.SetActive(true);
     }
 

@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) 
         {
+            Destroy(collision.gameObject);
             GameManager.Instance.restart();
         }
 
