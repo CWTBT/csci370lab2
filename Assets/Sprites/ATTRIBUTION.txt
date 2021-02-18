@@ -1,3 +1,4 @@
 BG Tileset: https://sevarihk.itch.io/aztec-asset-pack
 Snail: https://opengameart.org/content/slime-snail
 Spear: https://opengameart.org/content/spear-1
+Farmer: https://opengameart.org/content/farmer
